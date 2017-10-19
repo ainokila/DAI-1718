@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    {% endblock %}
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Mi aplicación</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+      </button>
+
+      <!-- Menu de cabecera -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- Submenu
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Item 2</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Item 3</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Item 4</a>
+          </li>
+          -->
+        </ul>
+
+
+        <!-- Formulario de login -->
+
+        {% if usuario %}
+          <h5>{{ usuario }}</h5>
+          <form class="form-inline my-2 my-lg-0" method="post" action="/logout">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>
+          </form>
+        {% else %}
+          <form class="form-inline my-2 my-lg-0" method="post" action="/login">
+            <input class="form-control mr-sm-2" type="text" placeholder="Usuario" aria-label="Search" name="user">
+            <input class="form-control mr-sm-2" type="text" placeholder="Contraseña" aria-label="Search" name="pass">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+          </form>
+        {% endif %}
+
+      </div>
+    </nav>
+
+
+
+    <!-- Cuerpo y menu lateral-->
+
+    <div class="row">
+
+      <div class="col-md-2">
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Disabled</a>
+          </li>
+
+          {% block lastVisited %}
+          {% endblock %}
+
+        </ul>
+
+      </div>
+
+      <!-- Cuerpo central de la web-->
+      <div class="col-md-10">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+    </div>
+
+
+
+    <!--Pie de pagina-->
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-left">© 2014 - Site Built By Mr. M.
+             <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+        </p>
+
+        <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
+        <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
+      </div>
+  </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block lastVisited %}
+  {% if rows %}
+      {% for row in rows %}
+           <li class="nav-item">
+             <a class="nav-link" href="{{ row }}">{{ row }}</a>
+           </li>
+      {% endfor %}
+
+  {% endif %}
+{% endblock %}
+
+
+
+
+{% block content %}
+    <h1>Título de la página</h1>
+    <p class="important">
+      ¡Bienvenido piltrafilla!
+    </p>
+{% endblock %}
